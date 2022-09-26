@@ -12,6 +12,28 @@ if (isset($_POST['register'])) {
     $phonenum = $_POST['phonenum'];
     $membership = $_POST['membership'];
     // Melakukan insert ke databse dengan query dibawah ini
+    $check=mysqli_query(
+        $con,
+        "SELECT * FROM users WHERE email='$email'");
+        if(mysqli_num_rows($check)>0){
+            echo
+            '<script>
+            alert("Email Sudah Terdaftar");
+            window.location = "../page/registerPage.php"
+            </script>';
+        }
+    
+    $check=mysqli_query(
+        $con,
+        "SELECT * FROM users WHERE phonenum='$phonenum'");
+        if(mysqli_num_rows($check)>0){
+            echo
+            '<script>
+            alert("Nomor Telepon Sudah Terdaftar");
+            window.location = "../page/registerPage.php"
+            </script>';
+        }
+
     $query = mysqli_query(
         $con,
         "INSERT INTO users(email, password, name, phonenum, membership) VALUES('$email', '$password', '$name', '$phonenum', '$membership')") or die(mysqli_error($con)); // perintah mysql yang gagal dijalankan ditangani oleh perintah “or die”
