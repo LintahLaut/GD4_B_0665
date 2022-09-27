@@ -19,7 +19,7 @@ include '../component/sidebar.php'
         </div>
         <div class="col-md-12">
             <label for="membership" class="form-label">Membership</label>
-            <select class="form-select" aria-label="Default select example" name="membership" disabled>
+            <select class="form-select" aria-label="Default select example" name="membership">
                 <option value="Reguler" <?php echo $_SESSION['user']['membership'] == 'Platinum' ? 'selected' : ''; ?>>Reguler</option>
                 <option value="Platinum" <?php echo $_SESSION['user']['membership'] == 'Platinum' ? 'selected' : ''; ?>>Platinum</option>
                 <option value="Gold" <?php echo $_SESSION['user']['membership'] == 'Gold' ? 'selected' : ''; ?>>Gold</option>
